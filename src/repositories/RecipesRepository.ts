@@ -18,7 +18,7 @@ class RecipesRepository {
     return this.recipes;
   }
 
-  public create({ title, link, ingredients, gif }: CreateRecipeDTO): void {
+  public create({ title, link, ingredients, gif }: CreateRecipeDTO): Recipe {
     const recipe = new Recipe({
       title,
       ingredients,
@@ -28,6 +28,8 @@ class RecipesRepository {
     });
 
     this.recipes.push(recipe);
+
+    return recipe;
   }
 }
 
