@@ -4,6 +4,15 @@ import ImportRecipesService from '../services/ImportRecipesService';
 
 const recipeRouter = Router();
 
+/**
+ * Pendências
+ * separar variaveis ambiente; ok
+ * Docker deploy;
+ * Readme;
+ * DDD;
+ * Test
+ */
+
 recipeRouter.get('/', async (request, response) => {
   const { i } = request.query;
 
