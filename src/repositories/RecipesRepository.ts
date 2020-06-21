@@ -1,11 +1,6 @@
 import Recipe from '../entities/Recipe';
 
-interface CreateRecipeDTO {
-  title: string;
-  ingredients: string[];
-  link: string;
-  gif: string;
-}
+import ICreateRecipeDTO from '../dtos/ICreateRecipeDTO';
 
 class RecipesRepository {
   private recipes: Recipe[];
@@ -18,7 +13,12 @@ class RecipesRepository {
     return this.recipes;
   }
 
-  public create({ title, link, ingredients, gif }: CreateRecipeDTO): Recipe {
+  public async create({
+    title,
+    link,
+    ingredients,
+    gif,
+  }: ICreateRecipeDTO): Promise<Recipe> {
     const recipe = new Recipe({
       title,
       ingredients,
@@ -27,7 +27,7 @@ class RecipesRepository {
       created_at: new Date(),
     });
 
-    this.recipes.push(recipe);
+    await this.recipes.push(recipe);
 
     return recipe;
   }

@@ -1,12 +1,7 @@
 import RecipesRepository from '../repositories/RecipesRepository';
 import Recipe from '../entities/Recipe';
 
-interface Request {
-  title: string;
-  ingredients: string[];
-  link: string;
-  gif: string;
-}
+import ICreateRecipeDTO from '../dtos/ICreateRecipeDTO';
 
 class CreateRecipeService {
   private recipesRepository: RecipesRepository;
@@ -15,8 +10,13 @@ class CreateRecipeService {
     this.recipesRepository = recipesRepository;
   }
 
-  public execute({ title, ingredients, link, gif }: Request): Recipe {
-    const recipe = this.recipesRepository.create({
+  public async execute({
+    title,
+    ingredients,
+    link,
+    gif,
+  }: ICreateRecipeDTO): Promise<Recipe> {
+    const recipe = await this.recipesRepository.create({
       title,
       ingredients,
       link,
