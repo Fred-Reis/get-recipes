@@ -1,8 +1,9 @@
-import Recipe from '../entities/Recipe';
+import Recipe from '@modules/recipes/infra/entities/Recipe';
 
-import ICreateRecipeDTO from '../dtos/ICreateRecipeDTO';
+import ICreateRecipeDTO from '@modules/recipes/dtos/ICreateRecipeDTO';
+import IRecipesRepository from '@modules/recipes/repositories/IRecipesRepository';
 
-class RecipesRepository {
+class RecipesRepository implements IRecipesRepository {
   private recipes: Recipe[];
 
   constructor() {

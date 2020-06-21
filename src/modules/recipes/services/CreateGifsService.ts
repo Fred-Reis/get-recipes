@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import AppError from '../errors/AppError';
+import AppError from '@shared/errors/AppError';
 
 class CreateGifsService {
   public async execute(title: string): Promise<string> {

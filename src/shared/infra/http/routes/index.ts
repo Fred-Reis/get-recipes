@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import recipeRouter from './recipe.routes';
+import recipeRouter from '@modules/recipes/infra/http/routes/recipe.routes';
 
 const routes = Router();
 

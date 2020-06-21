@@ -1,12 +1,12 @@
 import fetch from 'node-fetch';
 
-import RecipesRepository from '../repositories/RecipesRepository';
+import RecipesRepository from '@modules/recipes/infra/repositories/RecipesRepository';
 
 import CreateRecipeService from './CreateRecipeService';
 import CreateGifsService from './CreateGifsService';
-import Recipe from '../entities/Recipe';
+import Recipe from '@modules/recipes/infra/entities/Recipe';
 
-import AppError from '../errors/AppError';
+import AppError from '@shared/errors/AppError';
 
 const recipesRepository = new RecipesRepository();
 

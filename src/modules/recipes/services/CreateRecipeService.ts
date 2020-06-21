@@ -1,5 +1,5 @@
-import RecipesRepository from '../repositories/RecipesRepository';
-import Recipe from '../entities/Recipe';
+import RecipesRepository from '@modules/recipes/infra/repositories/RecipesRepository';
+import Recipe from '@modules/recipes/infra/entities/Recipe';
 
 import ICreateRecipeDTO from '../dtos/ICreateRecipeDTO';
 
