@@ -8,8 +8,6 @@ import Recipe from '../entities/Recipe';
 
 import AppError from '../errors/AppError';
 
-const HOST_NAME = 'http://www.recipepuppy.com/api/';
-
 const recipesRepository = new RecipesRepository();
 
 const createRecipeService = new CreateRecipeService(recipesRepository);
@@ -31,7 +29,7 @@ class ImportRecipesService {
       throw new AppError('Choose a maximum of three ingredients.');
     }
 
-    const res = await fetch(`${HOST_NAME}?i=${ingredients}`);
+    const res = await fetch(`${process.env.PUPPY_URL}?i=${ingredients}`);
 
     if (res.status !== 200) {
       throw new AppError(

@@ -2,14 +2,13 @@ import fetch from 'node-fetch';
 
 import AppError from '../errors/AppError';
 
-const HOST_NAME = 'http://api.giphy.com/v1/gifs/search';
-const API_KEY = 'Jnf9BzzpjjCmsK07h8GCsvy2lEHCMIOg';
-
 class CreateGifsService {
   public async execute(title: string): Promise<string> {
     const fullTitle = title.split(' ').join('+');
 
-    const res = await fetch(`${HOST_NAME}?q=${fullTitle}&api_key=${API_KEY}`);
+    const res = await fetch(
+      `${process.env.GIPHY_URL}?q=${fullTitle}&api_key=${process.env.API_KEY}&limit=3`,
+    );
 
     if (res.status !== 200) {
       throw new AppError(
