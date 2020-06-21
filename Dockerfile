@@ -2,7 +2,7 @@ FROM node:12.18.1
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-WORKDIR /home/node/src/app
+WORKDIR /home/node/src/shared/infra/http/server
 
 COPY package*.json ./
 
