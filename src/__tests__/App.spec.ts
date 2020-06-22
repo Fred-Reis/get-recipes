@@ -6,8 +6,6 @@ import ImportRecipesService from '../modules/recipes/services/ImportRecipesServi
 import CreateRecipeService from '../modules/recipes/services/CreateRecipeService';
 import CreateGifsService from '../modules/recipes/services/CreateGifsService';
 
-import Recipe from '../modules/recipes/infra/entities/Recipe';
-
 let importRecipes: ImportRecipesService;
 let createRecipe: CreateRecipeService;
 let createGifs: CreateGifsService;
