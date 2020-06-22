@@ -1,22 +1,20 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 
-import AppError from '@shared/errors/AppError';
+import AppError from '../../../shared/errors/AppError';
 
 class CreateGifsService {
   public async execute(title: string): Promise<string> {
     const fullTitle = title.split(' ').join('+');
 
-    const res = await fetch(
+    const response = await axios.get(
       `${process.env.GIPHY_URL}?q=${fullTitle}&api_key=${process.env.API_KEY}&limit=3`,
     );
 
-    if (res.status !== 200) {
+    if (response.status !== 200) {
       throw new AppError(
         'Sorry, one of our partners may be in trouble now, try again later.',
       );
     }
-
-    const response = await res.json();
 
     let gif;
 

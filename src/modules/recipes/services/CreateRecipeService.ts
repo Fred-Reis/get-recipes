@@ -1,13 +1,15 @@
-import RecipesRepository from '@modules/recipes/infra/repositories/RecipesRepository';
-import Recipe from '@modules/recipes/infra/entities/Recipe';
+import Recipe from '../infra/entities/Recipe';
 
+import RecipesRepository from '../infra/repositories/RecipesRepository';
+
+import IRecipesRepository from '../repositories/IRecipesRepository';
 import ICreateRecipeDTO from '../dtos/ICreateRecipeDTO';
 
 class CreateRecipeService {
-  private recipesRepository: RecipesRepository;
+  private recipesRepository: IRecipesRepository;
 
-  constructor(recipesRepository: RecipesRepository) {
-    this.recipesRepository = recipesRepository;
+  constructor() {
+    this.recipesRepository = new RecipesRepository();
   }
 
   public async execute({

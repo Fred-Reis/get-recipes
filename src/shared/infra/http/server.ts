@@ -4,8 +4,8 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 
-import routes from '@shared/infra/http/routes';
-import AppError from '@shared/errors/AppError';
+import routes from './routes';
+import AppError from '../../errors/AppError';
 
 const app = express();
 

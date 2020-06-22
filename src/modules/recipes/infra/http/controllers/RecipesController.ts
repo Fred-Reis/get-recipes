@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import ImportRecipesService from '@modules/recipes/services/ImportRecipesService';
+import ImportRecipesService from '../../../services/ImportRecipesService';
 
 export default class RecipesController {
   public async create(request: Request, response: Response): Promise<Response> {

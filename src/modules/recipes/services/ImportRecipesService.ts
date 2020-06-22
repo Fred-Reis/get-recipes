@@ -1,16 +1,12 @@
-import fetch from 'node-fetch';
-
-import RecipesRepository from '@modules/recipes/infra/repositories/RecipesRepository';
+import axios from 'axios';
 
 import CreateRecipeService from './CreateRecipeService';
 import CreateGifsService from './CreateGifsService';
-import Recipe from '@modules/recipes/infra/entities/Recipe';
+import Recipe from '../infra/entities/Recipe';
 
-import AppError from '@shared/errors/AppError';
+import AppError from '../../../shared/errors/AppError';
 
-const recipesRepository = new RecipesRepository();
-
-const createRecipeService = new CreateRecipeService(recipesRepository);
+const createRecipeService = new CreateRecipeService();
 const createGifsService = new CreateGifsService();
 
 class ImportRecipesService {
@@ -29,21 +25,21 @@ class ImportRecipesService {
       throw new AppError('Choose a maximum of three ingredients.');
     }
 
-    const res = await fetch(`${process.env.PUPPY_URL}?i=${ingredients}`);
+    const response = await axios.get(
+      `${process.env.PUPPY_URL}?i=${ingredients}`,
+    );
 
-    if (res.status !== 200) {
+    if (response.status !== 200) {
       throw new AppError(
         'Sorry, one of our partners may be in trouble now, try again later.',
       );
     }
 
-    const response = await res.json();
-
-    if (response.results.length < 1) {
+    if (response.data.results.length < 1) {
       throw new AppError('Sorry, no recipes were found for these ingredients.');
     }
 
-    for (const result of response.results) {
+    for (const result of response.data.results) {
       const gif = await createGifsService.execute(result.title);
       const recipe = await createRecipeService.execute({
         title: result.title,

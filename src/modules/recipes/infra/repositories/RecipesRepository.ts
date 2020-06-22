@@ -1,7 +1,7 @@
-import Recipe from '@modules/recipes/infra/entities/Recipe';
+import Recipe from '../entities/Recipe';
 
-import ICreateRecipeDTO from '@modules/recipes/dtos/ICreateRecipeDTO';
-import IRecipesRepository from '@modules/recipes/repositories/IRecipesRepository';
+import ICreateRecipeDTO from '../../dtos/ICreateRecipeDTO';
+import IRecipesRepository from '../../repositories/IRecipesRepository';
 
 class RecipesRepository implements IRecipesRepository {
   private recipes: Recipe[];
@@ -28,7 +28,7 @@ class RecipesRepository implements IRecipesRepository {
       created_at: new Date(),
     });
 
-    await this.recipes.push(recipe);
+    this.recipes.push(recipe);
 
     return recipe;
   }
