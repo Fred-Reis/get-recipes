@@ -1,12 +1,7 @@
-<div align="center">
-  <img alt="Delivery Much"
-    src="src/assets/banner.jpeg"
-  />
 
-</div>
 
 <h2 align="center">
-   Delivery Much tech challenge
+   Get Recipes API
 </h2>
 
 <p align="center">
@@ -24,12 +19,7 @@
 
 </p>
 
-<blockquote align="center">
-  Este projeto foi desenvolvido como um teste técnico para:&nbsp;
-    <a href="https://deliverymuch.com.br/inicio">
-       Delivery Much
-    </a>
-</blockquote>
+
 
 <hr/>
 
