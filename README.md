@@ -1,4 +1,9 @@
+<div align="center">
+  <img alt="Get Recipes"
+    src="src/assets/recipes.jpg"
+  />
 
+</div>
 
 <h2 align="center">
    Get Recipes API
@@ -18,8 +23,6 @@
     <img src="https://api.codacy.com/project/badge/Grade/7035120285fa4be2beb130a25a9bdf19"/></a>
 
 </p>
-
-
 
 <hr/>
 
